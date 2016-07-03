@@ -1,14 +1,22 @@
+/*Classe CommPortReceiver [THREAD]
+ * Desc : Classe de reception de trame du port serie
+ * By : Loïc MONOT
+ * Date : 08/05/2016
+ * Group : Loïc MONOT / Pierre-Antoine CHARPENTIER
+ * Section : LP SIL IDSE 2016
+*/
+
 package CommRS232;
 import java.io.IOException;
 import java.io.InputStream;
 
 import makeBlock.Protocol;
-import makeBlock.ProtocolImpl;
+import makeBlock.ProtocolServo;
   
 public class CommPortReceiver extends Thread{  
 	
     InputStream in;    
-    Protocol protocol = new ProtocolImpl();    
+    Protocol protocol = new ProtocolServo();    
      
     public CommPortReceiver(InputStream in) {    
         this.in = in;
@@ -19,13 +27,13 @@ public class CommPortReceiver extends Thread{
             int b;    
             while(true) {    
                     
-                // if stream is not bound in.read() method returns -1    
+                // si le flux est pas lié in.read () renvoie -1
                 while((b = in.read()) != -1) {    
                     protocol.onReceive((byte) b);    
                 }    
                 protocol.onStreamClosed();    
                     
-                // wait 10ms when stream is broken and check again    
+                // attendre 10ms Lorsque le flux est coupé et vérifier à nouveau 
                 sleep(1);    
             }    
         } catch (IOException e) {    

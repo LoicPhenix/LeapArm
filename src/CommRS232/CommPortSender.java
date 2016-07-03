@@ -1,3 +1,11 @@
+/*Classe CommPortSender
+ * Desc : Classe d'envoi de trame au port serie
+ * By : Loïc MONOT
+ * Date : 08/05/2016
+ * Group : Loïc MONOT / Pierre-Antoine CHARPENTIER
+ * Section : LP SIL IDSE 2016
+*/
+
 package CommRS232;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -12,10 +20,10 @@ public class CommPortSender {
         
     public static void send(byte[] bytes) {    
         try {    
-        	//debug info
+        	//debug
             System.out.print("\nSENDING --> length : " + bytes.length + ", trame : " + new String(bytes, 0, bytes.length));
                 
-            // sending through serial port is simply writing into OutputStream    
+            // Envoi par le port série de la trame
             out.write(bytes);    
             out.flush();
             

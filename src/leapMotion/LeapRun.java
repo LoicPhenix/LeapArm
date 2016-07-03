@@ -17,11 +17,10 @@ public class LeapRun {
 	private LeapListener listener;
 	
 	public LeapRun () {
-		// Create a sample listener and controller
 		listener = new LeapListener();
         controller = new Controller();
 
-        // Have the sample listener receive events from the controller
+        // Association du listener Leapmotion
         controller.addListener(listener);
         
         System.out.println(controller.frame().hands());

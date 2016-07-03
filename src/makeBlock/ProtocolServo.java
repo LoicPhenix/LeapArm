@@ -1,7 +1,15 @@
+/*Classe ProtocolServo
+ * Desc : Protocol de communication (Trame) du robot
+ * By : Loïc MONOT
+ * Date : 08/05/2016
+ * Group : Loïc MONOT / Pierre-Antoine CHARPENTIER
+ * Section : LP SIL IDSE 2016
+*/
+
 package makeBlock;
 import java.io.IOException;
 
-public class ProtocolImpl implements Protocol{  
+public class ProtocolServo implements Protocol{  
 	
     byte[] buffer = new byte[1024];    
     int tail = 0;    

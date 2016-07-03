@@ -40,7 +40,7 @@ ARDUINO :
 - ouvrez votre projet LeapArm
 - Modifiez le port RS232 : "COM4" par votre port BL du robot (dans : LeapArm/src/LeapArm.java)
 
-- Lancez LeapArm via l'IDE le projet
+- Lancez LeapArm via l'IDE
 
 ### Utilisation :
 

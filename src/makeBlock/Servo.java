@@ -152,6 +152,6 @@ public class Servo {
 			pin_str = "0" + pin_str;
 		*/
 		tmp = pin_str + "," + tmp + "\n";
-		CommPortSender.send(new ProtocolImpl().getMessage(tmp));
+		CommPortSender.send(new ProtocolServo().getMessage(tmp));
 	}
 }

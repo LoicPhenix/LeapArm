@@ -33,6 +33,8 @@ public class LeapListener extends Listener {
 	public void onExit(Controller controller) {
 		System.out.println("Exited");
 	}
+	
+	// Reception des mouvements LeapMotion (Boucle)
 	public void onFrame(Controller controller) {
 		Frame frame = controller.frame();
 		if (!frame.hands().isEmpty()) {
@@ -40,7 +42,7 @@ public class LeapListener extends Listener {
 			
 			Hand handRight = frame.hands().rightmost();
 			Hand handLeft = frame.hands().leftmost();
-			// hand vector and direction
+			// Vecteur des Mains et Direction
 			Vector handR = handRight.palmNormal();
 			Vector handL = handLeft.palmNormal();
 			
@@ -56,16 +58,20 @@ public class LeapListener extends Listener {
 			", Z : " + handLeft.palmPosition().getZ()+
 			", Yaw : " + Math.toDegrees(handL.yaw()));
 			
+			// Transcription des mouvements en action du robot 
+			// Main Gauche
 			if (handLeft.isLeft() == true){
 				arm_pince_1.arm_pince(handLeft.sphereRadius(), Math.toDegrees(handL.yaw()));
 				arm_bras_2.arm_bras(handLeft.palmPosition().getY(), handLeft.sphereRadius());
 			}
+			// Main droite
 			if (handRight.isRight() == true){
 				arm_drive_3.arm_chenilleG(handRight.palmPosition().getZ(),handRight.palmPosition().getX(), handRight.sphereRadius());
 				arm_drive_4.arm_chenilleD(handRight.palmPosition().getZ(),handRight.palmPosition().getX(), handRight.sphereRadius());
 			}
 			
 			try {
+				//attente de 10 ms
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
