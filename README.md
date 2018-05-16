@@ -1,5 +1,5 @@
 # Projet LeapArm
-## Par Loïc MONOT / Pierre-Antoine CHARPENTIER
+## Par Loïc MONOT
 
 Projet de commande d'un bras robotisé sur chenille à l'aide de LeapMotion via Bluetooth.
 
